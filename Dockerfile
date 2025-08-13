@@ -24,6 +24,7 @@ RUN apt-get update \
     # for arm64 cross-compile
     libc6-dev-amd64-cross \
     binutils-x86-64-linux-gnu \
+    vim \
  && apt-get clean -y \
  && rm -rf /var/lib/apt/lists
 

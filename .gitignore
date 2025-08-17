@@ -2,6 +2,3 @@
 *.img
 .vscode
 mnt
-**/*.o
-**/*.elf
-**/*.d

@@ -12,9 +12,8 @@ LDFLAGS  += --entry KernelMain -z norelro --image-base 0x100000 --static
 all: $(TARGET)
 
 .PHONY: clean
-clean: 
+clean:
 	rm -rf *.o
-
 kernel.elf: $(OBJS) Makefile
 	ld.lld $(LDFLAGS) -o kernel.elf $(OBJS) -lc
 
@@ -24,6 +23,7 @@ kernel.elf: $(OBJS) Makefile
 .%.d: %.cpp
 	clang++ $(CPPFLAGS) $(CXXFLAGS) -MM $< > $@
 	$(eval OBJ = $(<:.cpp=.o))
+	sed --in-place 's|$(notdir $(OBJ))|$(OBJ)|' $@
 	
 %.o: %.c Makefile
 	clang $(CPPFLAGS) $(CFLAGS) -c $<
@@ -31,7 +31,7 @@ kernel.elf: $(OBJS) Makefile
 .%.d: %.c
 	clang $(CPPFLAGS) $(CFLAGS) -MM $< > $@
 	$(eval OBJ = $(<:.c=.o))
-	sed --in-place 's|$(notdir $(OBJ))|$(OBJ)' $@
+	sed --in-place 's|$(notdir $(OBJ))|$(OBJ)|' $@
 
 hankaku.bin: hankaku.txt
 	../tools/makefont.py -o $@ $<

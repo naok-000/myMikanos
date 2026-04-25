@@ -17,6 +17,7 @@ $ make make -C BaseTools/Source/C
 
 ```console
 $ cd edk2
+$ ln -s ../MikanLoaderPkg ./
 $ source edksetup.sh
 $ build
 ```

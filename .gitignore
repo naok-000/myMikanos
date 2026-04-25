@@ -2,3 +2,7 @@
 *.img
 .vscode
 mnt
+
+# Nix
+.direnv
+result

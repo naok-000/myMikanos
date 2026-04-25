@@ -1,5 +1,5 @@
 {
-  description = "MikanOS development environment on macOS";
+  description = "MikanOS development environment";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
@@ -28,7 +28,7 @@
           python3
           mtools
 
-          llvm.clang
+          llvm.clang-unwrapped
           llvm.lld
           llvm.llvm
         ];
